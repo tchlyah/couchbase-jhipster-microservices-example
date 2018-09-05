@@ -1,0 +1,6 @@
+-- create indexes
+CREATE INDEX type ON `${bucket}`(`_class`)
+    WITH { "defer_build" : true };
+
+-- build indexes asynchronously
+BUILD INDEX ON `${bucket}`(type);

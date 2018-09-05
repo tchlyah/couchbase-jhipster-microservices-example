@@ -1,0 +1,13 @@
+{
+    "login": "anonymoususer",
+
+    "first_name": "Anonymous",
+    "last_name": "User",
+    "email": "admin@localhost",
+    "activated": true,
+    "lang_key": "en",
+    "created_by": "system",
+    "last_modified_by": "system",
+    "authorities": [],
+    "_class": "com.couchbase.example.domain.User"
+}

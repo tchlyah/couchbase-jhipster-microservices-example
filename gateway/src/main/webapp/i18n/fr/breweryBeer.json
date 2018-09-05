@@ -1,0 +1,35 @@
+
+{
+    "gatewayApp": {
+        "breweryBeer" : {
+            "home": {
+                "title": "Beers",
+                "createLabel": "Créer un nouveau Beer",
+                "createOrEditLabel": "Créer ou éditer un Beer"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Beer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Beer"
+            },
+            "name": "Name",
+            "category": "Category",
+            "description": "Description",
+            "style": "Style",
+            "brewery": "Brewery",
+            "abv": "Abv",
+            "ibu": "Ibu",
+            "srm": "Srm",
+            "upc": "Upc",
+            "updated": "Updated"
+        }
+    },
+    "breweryApp": {
+        "breweryBeer" : {
+            "created": "Un nouveau Beer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Beer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Beer avec l'identifiant {{ param }} a été supprimé"
+        }
+    }
+}

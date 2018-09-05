@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="beer">
+            <h2><span jhiTranslate="gatewayApp.breweryBeer.detail.title">Beer</span> {{beer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.name">Name</span></dt>
+                <dd>
+                    <span>{{beer.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.category">Category</span></dt>
+                <dd>
+                    <span>{{beer.category}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.description">Description</span></dt>
+                <dd>
+                    <span>{{beer.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.style">Style</span></dt>
+                <dd>
+                    <span>{{beer.style}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.brewery">Brewery</span></dt>
+                <dd>
+                    <span>{{beer.brewery}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.abv">Abv</span></dt>
+                <dd>
+                    <span>{{beer.abv}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.ibu">Ibu</span></dt>
+                <dd>
+                    <span>{{beer.ibu}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.srm">Srm</span></dt>
+                <dd>
+                    <span>{{beer.srm}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.upc">Upc</span></dt>
+                <dd>
+                    <span>{{beer.upc}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBeer.updated">Updated</span></dt>
+                <dd>
+                    <span>{{beer.updated}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/beer', beer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+version: '2'
+services:
+    gateway-couchbase:
+        build:
+            context: .
+            dockerfile: couchbase/Couchbase.Dockerfile
+        ports:
+            - 8091:8091
+            - 8092:8092
+            - 8093:8093
+            - 11210:11210
+        environment:
+            - TYPE=MASTER
+            - BUCKET=gateway
+    gateway-couchbase-node:
+        build:
+            context: .
+            dockerfile: couchbase/Couchbase.Dockerfile
+        environment:
+            - TYPE=WORKER
+            - BUCKET=gateway
+            - COUCHBASE_MASTER=gateway-couchbase
+            - AUTO_REBALANCE=false

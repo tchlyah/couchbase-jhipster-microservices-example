@@ -1,0 +1,28 @@
+entity Beer {
+    name String required,
+    category String required,
+    description String,
+    style String,
+    brewery String,
+	abv Float,
+    ibu Integer,
+    srm Integer,
+    upc Integer,
+    updated LocalDate
+}
+
+entity Brewery {
+    name String required,
+    description String,
+    address String required maxlength(200),
+    city String,
+    code String,
+    country String,
+    phone String pattern(/[0-9- .]+/),
+    state String,
+    website String,
+    updated LocalDate
+}
+
+paginate Beer with pager
+paginate Brewery with infinite-scroll

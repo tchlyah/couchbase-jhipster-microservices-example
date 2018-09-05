@@ -1,0 +1,62 @@
+{
+    "name": "Beer",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "style",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "brewery",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abv",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "ibu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "srm",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "upc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "updated",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180818144056",
+    "entityTableName": "beer",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "brewery"
+}

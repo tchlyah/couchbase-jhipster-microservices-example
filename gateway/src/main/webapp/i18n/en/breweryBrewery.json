@@ -1,0 +1,35 @@
+
+{
+    "gatewayApp": {
+        "breweryBrewery" : {
+            "home": {
+                "title": "Breweries",
+                "createLabel": "Create a new Brewery",
+                "createOrEditLabel": "Create or edit a Brewery"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Brewery {{ id }}?"
+            },
+            "detail": {
+                "title": "Brewery"
+            },
+            "name": "Name",
+            "description": "Description",
+            "address": "Address",
+            "city": "City",
+            "code": "Code",
+            "country": "Country",
+            "phone": "Phone",
+            "state": "State",
+            "website": "Website",
+            "updated": "Updated"
+        }
+    },
+    "breweryApp": {
+        "breweryBrewery" : {
+            "created": "A new Brewery is created with identifier {{ param }}",
+            "updated": "A Brewery is updated with identifier {{ param }}",
+            "deleted": "A Brewery is deleted with identifier {{ param }}"
+        }
+    }
+}

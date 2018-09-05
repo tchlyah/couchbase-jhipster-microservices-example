@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="brewery">
+            <h2><span jhiTranslate="gatewayApp.breweryBrewery.detail.title">Brewery</span> {{brewery.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.name">Name</span></dt>
+                <dd>
+                    <span>{{brewery.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.description">Description</span></dt>
+                <dd>
+                    <span>{{brewery.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.address">Address</span></dt>
+                <dd>
+                    <span>{{brewery.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.city">City</span></dt>
+                <dd>
+                    <span>{{brewery.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.code">Code</span></dt>
+                <dd>
+                    <span>{{brewery.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.country">Country</span></dt>
+                <dd>
+                    <span>{{brewery.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.phone">Phone</span></dt>
+                <dd>
+                    <span>{{brewery.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.state">State</span></dt>
+                <dd>
+                    <span>{{brewery.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.website">Website</span></dt>
+                <dd>
+                    <span>{{brewery.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.breweryBrewery.updated">Updated</span></dt>
+                <dd>
+                    <span>{{brewery.updated}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/brewery', brewery.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

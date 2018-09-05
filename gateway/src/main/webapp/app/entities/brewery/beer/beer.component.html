@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.breweryBeer.home.title">Beers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-beer" [routerLink]="['/beer/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.breweryBeer.home.createLabel">
+            Create new Beer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="beers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="gatewayApp.breweryBeer.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="category"><span jhiTranslate="gatewayApp.breweryBeer.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="gatewayApp.breweryBeer.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="style"><span jhiTranslate="gatewayApp.breweryBeer.style">Style</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="brewery"><span jhiTranslate="gatewayApp.breweryBeer.brewery">Brewery</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="abv"><span jhiTranslate="gatewayApp.breweryBeer.abv">Abv</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ibu"><span jhiTranslate="gatewayApp.breweryBeer.ibu">Ibu</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="srm"><span jhiTranslate="gatewayApp.breweryBeer.srm">Srm</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="upc"><span jhiTranslate="gatewayApp.breweryBeer.upc">Upc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updated"><span jhiTranslate="gatewayApp.breweryBeer.updated">Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let beer of beers ;trackBy: trackId">
+                <td><a [routerLink]="['/beer', beer.id, 'view' ]">{{beer.id}}</a></td>
+                <td>{{beer.name}}</td>
+                <td>{{beer.category}}</td>
+                <td>{{beer.description}}</td>
+                <td>{{beer.style}}</td>
+                <td>{{beer.brewery}}</td>
+                <td>{{beer.abv}}</td>
+                <td>{{beer.ibu}}</td>
+                <td>{{beer.srm}}</td>
+                <td>{{beer.upc}}</td>
+                <td>{{beer.updated | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/beer', beer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/beer', beer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'beer/'+ beer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Pager is not implemented yet, so this is normal pagination instead -->
+    <div *ngIf="beers && beers.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
